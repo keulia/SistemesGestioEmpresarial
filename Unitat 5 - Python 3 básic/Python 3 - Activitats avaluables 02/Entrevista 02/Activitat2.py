@@ -9,3 +9,4 @@ if every value is bigger than 1 then program says "Wrong"
 else "Correct!"
 
 """
+print("ouch")

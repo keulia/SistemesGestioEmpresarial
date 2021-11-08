@@ -7,9 +7,9 @@
 ⠀⠀⠀⠀⠀⠀(•ㅅ•) ||
 ⠀⠀⠀⠀⠀⠀/ 　 づ
 
-Autor: Cassandra Sowa Candela ♡ ´･ᴗ･ `♡
+Author: Cassandra Sowa Candela ♡ ´･ᴗ･ `♡
 2ºDAM
-Octubre 2021
+November 2021
 
 ⠀                                                 ⠀∩∩
                                                 ♡(｡･x･)♡  

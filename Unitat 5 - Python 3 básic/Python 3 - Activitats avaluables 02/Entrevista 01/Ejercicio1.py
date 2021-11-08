@@ -1,3 +1,27 @@
+"""
+*˖⁺*˖⁺♡˖°♥°˖✧ʕᵔᴥᵔ♥ʔ*˖⁺*˖⁺♡˖°♥°˖✧ʕᵔᴥᵔ♥ʔ*˖⁺*˖⁺♡˖°♥°˖✧ʕᵔᴥᵔ♥ʔ*˖⁺*˖⁺♡˖°♥°˖✧ʕᵔᴥᵔ♥ʔ*˖⁺*˖⁺♡˖°♥°˖✧ʕᵔᴥᵔ♥ʔ*˖⁺*˖⁺♡˖°♥°˖✧
+|￣￣￣￣￣￣￣￣￣￣￣|
+    Exercise 1
+|＿＿＿＿＿＿＿＿＿＿＿|
+⠀⠀⠀⠀⠀⠀(\__/) ||
+⠀⠀⠀⠀⠀⠀(•ㅅ•) ||
+⠀⠀⠀⠀⠀⠀/ 　 づ
+
+Autor: Cassandra Sowa Candela ♡ ´･ᴗ･ `♡
+2ºDAM
+Octubre 2021
+
+⠀                                                 ⠀∩∩
+                                                ♡(｡･x･)♡  
+
+   ▄▀▀▀▄▄▄▄▄▄▄▀▀▀▄                                                                     ▄▀▀▀▄▄▄▄▄▄▄▀▀▀▄ 
+   █▒▒░░░░░░░░░▒▒█                                                                     █▒▒░░░░░░░░░▒▒█
+    █░░█░░░░░█░░█                                                                       █░░█░░░░░█░░█
+ ▄▄  █░░░▀█▀░░░█  ▄▄                                                                 ▄▄  █░░░▀█▀░░░█  ▄▄
+█░░█ ▀▄░░░░░░░▄▀ █░░█                                                               █░░█ ▀▄░░░░░░░▄▀ █░░█
+
+*✲ﾟ*｡⋆♡*✲ﾟ*｡⋆♡*✲ﾟ*｡⋆♡*✲ﾟ*｡⋆♡*✲ﾟ*｡⋆♡*✲ﾟ*｡⋆♡*✲ﾟ*｡⋆♡*✲ﾟ*｡⋆♡*✲ﾟ*｡⋆♡*✲ﾟ*｡⋆♡*✲ﾟ*｡⋆♡*✲ﾟ*｡⋆♡*✲ﾟ*｡⋆♡*✲ﾟ*｡⋆♡*✲ﾟ*｡⋆♡
+"""
 from functools import reduce
 
 
@@ -12,12 +36,24 @@ values = input("Enter numbers: ").split(" ")
 # map(), list() and int() example
 values = list(map(lambda x: int(x), values))
 
-#Ejemplo filter
-#Utilitzant “filter()”, elimina de la cadena anterior els números menors que 10.
+# filter example
+# Using “filter()”, removes from the list every number smaller than 10
 print(values)
 values = list(filter(lambda x : x >= 10, values))
 
-#Ejemplo reduce
-#Estamos realizando un cálculo acumulativo
+# reduce example
+# We are performing a cumulative calculation
 suma = reduce(lambda x, y: x * y, values)
 print(suma)
+
+"""
+*✲ﾟ*｡⋆♡*✲ﾟ*｡⋆♡*✲ﾟ*｡⋆♡*✲ﾟ*｡⋆♡*✲ﾟ*｡⋆♡*✲ﾟ*｡⋆♡*✲ﾟ*｡⋆♡*✲ﾟ*｡⋆♡*✲ﾟ*｡⋆♡*✲ﾟ*｡⋆♡*✲ﾟ*｡⋆♡*✲ﾟ*｡⋆♡*✲ﾟ*｡⋆♡*✲ﾟ*｡⋆♡*✲ﾟ*｡⋆♡
+⠀⠀⠀⠀°. ♡
+⠀⠀⠀⠀. °
+⠀⠀＿♡
+⊂⊂ ・）
+⠀/　 |
+⊂＿__u
+
+*˖⁺*˖⁺♡˖°♥°˖✧ʕᵔᴥᵔ♥ʔ*˖⁺*˖⁺♡˖°♥°˖✧ʕᵔᴥᵔ♥ʔ*˖⁺*˖⁺♡˖°♥°˖✧ʕᵔᴥᵔ♥ʔ*˖⁺*˖⁺♡˖°♥°˖✧ʕᵔᴥᵔ♥ʔ*˖⁺*˖⁺♡˖°♥°˖✧ʕᵔᴥᵔ♥ʔ*˖⁺*˖⁺♡˖°♥°˖✧
+"""

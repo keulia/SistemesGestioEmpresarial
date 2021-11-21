@@ -23,21 +23,22 @@ November 2021
 *✲ﾟ*｡⋆♡*✲ﾟ*｡⋆♡*✲ﾟ*｡⋆♡*✲ﾟ*｡⋆♡*✲ﾟ*｡⋆♡*✲ﾟ*｡⋆♡*✲ﾟ*｡⋆♡*✲ﾟ*｡⋆♡*✲ﾟ*｡⋆♡*✲ﾟ*｡⋆♡*✲ﾟ*｡⋆♡*✲ﾟ*｡⋆♡*✲ﾟ*｡⋆♡*✲ﾟ*｡⋆♡*✲ﾟ*｡⋆♡
 """
 
-from numpy import sqrt  #import this for calculating mathematical operations.
+from numpy import sqrt  # Import this for calculating mathematical operations
 
-file = open("Users\HP\Documents\input.txt")  #open the input file.
-lines = file.read().splitlines() #line is the list that store the input file elements.
+file = open("readme.txt")  # Open the input file
+lines = file.read().splitlines() 
 file.close()
 
-palindrome_list = [] #list that stores palindromic strings.
-prime_list = []      #list that stores prime numbers.
+prime_list = []      # List that stores prime numbers.
+palindrome_list = [] # List that stores palindromic strings.
+
 
 #for palindrome_list 
 for i in range(len(lines)):
-    y=len(lines[i])
+    a=len(lines[i])
     flag = 0
-    for j in range(y):
-        if(lines[i][j] != lines[i][y-j-1]):
+    for j in range(a):
+        if(lines[i][j] != lines[i][a-j-1]):
             flag = 1
     if(flag == 0):
         palindrome_list.append(lines[i])

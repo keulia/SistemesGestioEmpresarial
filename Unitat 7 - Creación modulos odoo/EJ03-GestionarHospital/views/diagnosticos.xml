@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id='diagnosticos_action' model='ir.actions.act_window'>
+        <field name="name">Diagnósticos</field> <!-- Nombre de la ventaba -->
+        <field name="res_model">diagnosticos</field> <!-- Modelo al que va a aplicar-->
+        <field name="view_mode">tree,form</field>     <!-- Distintos tipos de visualización -->
+    </record>
+
+    <!-- Añadimos la vista el menu principal -->
+    <menuitem name="Diagnosticos" id="diagnosticos_menu" action="diagnosticos_action"  parent="hospital_menu"/>
+
+    <!-- Vista usada en el formulario -->
+    <record id="diagnosticos_view_form" model="ir.ui.view">
+        <field name="name">Diagnósticos</field>     <!-- Nombre de la vista -->
+        <field name="model">diagnosticos</field> <!-- Modelo usado a la vista -->
+        <field name="arch" type="xml">
+            <form> <!-- Indicamos los campos del modelo a mostrar -->
+                <header>
+                    <button type="object" name="archivar" string="Archivar Diagnósticos"/>
+                </header>
+                <group> <!-- Agrupamos visualmente los elementos -->
+                    <field name="medico"/> 
+                    <field name="paciente"/>                        
+                    <field name="diagnostico"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista en formato de arbol -->
+    <record id="diagnosticos_view_tree" model="ir.ui.view">
+        <field name="name">Lista de Diagnósticos</field> <!-- Nombre de la vista -->
+        <field name="model">diagnosticos</field> <!-- Modelo usado a la vista -->
+        <field name="arch" type="xml">
+            <tree> <!-- Indicamos los campos del modelo a mostrar-->
+                <field name="medico"/>
+                <field name="paciente"/>                        
+                <field name="diagnostico"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vista en formato busqueda-->
+    <record id="diagnosticos_view_search" model="ir.ui.view">
+        <field name="name">Búsqueda de Diagnóstico</field>  <!-- Nombre de la vista -->
+        <field name="model">diagnosticos</field> <!-- Modelo usado a la vista -->
+        <field name="arch" type="xml">
+            <search> <!-- Indicamos los campos del modelo a mostrar-->
+                <field name="medico"/>
+                <field name="paciente"/>                        
+                <field name="diagnostico"/>
+            </search>
+        </field>
+    </record>
+
+</odoo>

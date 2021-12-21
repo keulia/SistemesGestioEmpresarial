@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id='pacientes_action' model='ir.actions.act_window'>
+        <field name="name">Pacientes</field> <!-- Nombre de la ventaba -->
+        <field name="res_model">pacientes</field> <!-- Modelo al que va a aplicar-->
+        <field name="view_mode">tree,form</field> <!-- Distintos tipos de visualización -->
+    </record>
+
+    <!-- Añadimos la vista el menu principal -->
+    <menuitem name="Hospital" id="hospital_menu" />
+    <menuitem name="Pacientes" id="pacientes_menu" action="pacientes_action"  parent="hospital_menu"/>
+
+    <!-- Vista usada en el formulario -->
+    <record id="pacientes_view_form" model="ir.ui.view">
+        <field name="name">Pacientes</field> <!-- Nombre de la vista -->
+        <field name="model">pacientes</field> <!-- Modelo usado a la vista -->
+        <field name="arch" type="xml">
+            <form> <!-- Indicamos los campos del modelo a mostrar -->
+                <group>
+                    <field name="nombre"/>
+                    <field name="apellidos"/>
+                    <field name="sintomas"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista en formato de arbol -->
+    <record id="pacientes_view_tree" model="ir.ui.view">
+        <field name="name">Pacientes</field>  <!-- Nombre de la vista -->
+        <field name="model">pacientes</field> <!-- Modelo usado a la vista -->
+        <field name="arch" type="xml">
+            <tree> <!-- Indicamos los campos del modelo a mostrar -->
+                <field name="nombre"/>
+                <field name="apellidos"/>
+                <field name="sintomas"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vista en formato busqueda-->
+    <record id="pacientes_view_search" model="ir.ui.view">
+        <field name="name">Pacientes</field>  <!-- Nombre de la vista -->
+        <field name="model">pacientes</field> <!-- Modelo usado a la vista -->
+        <field name="arch" type="xml">
+            <search> <!-- Indicamos los campos del modelo a mostrar -->
+                <field name="nombre"/>
+                <field name="apellidos"/>
+                <field name="sintomas"/>
+            </search>
+        </field>
+    </record>
+
+</odoo>

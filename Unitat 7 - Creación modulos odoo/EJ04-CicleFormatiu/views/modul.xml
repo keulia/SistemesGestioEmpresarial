@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id='modul_action' model='ir.actions.act_window'>
+        <field name="name">Llistat de moduls</field> <!-- Nom de la ventana -->
+        <field name="res_model">modul</field> <!-- Indiquem el model en el que es basa la vista -->
+        <field name="view_mode">tree,form</field> <!-- Indiquem els diferents tipos de modes de visualització -->
+    
+    </record>
+
+    <!-- Menú principal de l'aplicació, es el primer que verem a Odoo, quan pulsem al botó d'aplicacions -->
+    <menuitem name="Cicle Formatiu" id="cicle_formatiu" />
+
+    <!-- Afegim aquesta vista al menu principal -->
+    <menuitem name="modul" id="modul" action="modul_action" parent="cicle_formatiu"/>
+
+    <!-- Vista en format d'arbre -->
+    <record id="modul_tree" model="ir.ui.view">
+        <field name="name">Llistat de moduls</field> <!-- Nom de la vista -->
+        <field name="model">modul</field> <!-- Model usat a la vista-->
+        <field name="arch" type="xml">
+            <tree> <!-- Indiquem els camps del model a mostrar -->
+                <field name="nom"/>
+                <field name="cicle_formatiu"/>
+                <field name="professor"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

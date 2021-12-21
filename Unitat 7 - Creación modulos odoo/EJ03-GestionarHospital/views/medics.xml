@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id='medics_action' model='ir.actions.act_window'>
+        <field name="name">Llistat de medics</field> <!-- Nom de la ventana -->
+        <field name="res_model">medics</field> <!-- Indiquem el model en el que es basa la vista -->
+        <field name="view_mode">tree,form</field> <!-- Indiquem els diferents tipos de modes de visualització -->
+    </record>
+
+    <!-- Menú principal de l'aplicació, es el primer que verem a Odoo, quan pulsem al botó d'aplicacions -->
+    <menuitem name="Gestio d'hospital" id="gestio_hospital" />
+
+    <!-- Afegim aquesta vista al menu principal -->
+    <menuitem name="medics" id="medics" action="medics_action" parent="gestio_hospital"/>
+
+    <!-- Vista en format d'arbre -->
+    <record id="medics_tree" model="ir.ui.view">
+        <field name="name">Llistat de medics</field> <!-- Nom de la vista -->
+        <field name="model">medics</field> <!-- Model usat a la vista-->
+        <field name="arch" type="xml">
+            <tree> <!-- Indiquem els camps del model a mostrar -->
+                <field name="nom"/>
+                <field name="cognom"/>
+                <field name="num_collegiat"/>
+
+            </tree>
+        </field>
+    </record>
+</odoo>

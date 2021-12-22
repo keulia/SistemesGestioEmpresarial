@@ -10,7 +10,7 @@
 
     <!-- Simple menu item, sin más utilidad que la didáctica -->
     <menuitem name="Escuela" id="escuela_menu" />
-    <menuitem name="ciclos" id="ciclos_menu" parent="escuela_menu" action="ciclos_action"/>
+    <menuitem name="ciclos" id="ciclos_menu" action="ciclos_action" parent="escuela_menu"/>
 
     <!-- Vista usada en el formulario -->
     <record id="ciclos_view_form" model="ir.ui.view">

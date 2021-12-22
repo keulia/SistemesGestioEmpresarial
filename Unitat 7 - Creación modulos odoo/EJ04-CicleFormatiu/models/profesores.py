@@ -15,6 +15,7 @@ class profesores(models.Model):
  
     profID = fields.Integer('ID de profesor', required=True, index=True) # Identificador del profesor, campo númerico
     nombre = fields.Char('nombre', required=True, index=True)# nombre del prfesor, campo con textos
+    apellidos = fields.Char('apellidos', required=True, index=True) # Apellidos del profesor, campo con texto
     asignatura = fields.Many2one('modulos', required=True, index=True)  # Asignatura, relación entre el ciclo y los profesoresz
     # Constraints de SQL del modelo
     # Util cuando la constraint se puede definir con sintaxis SQL

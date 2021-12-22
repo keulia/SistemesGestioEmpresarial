@@ -8,7 +8,7 @@
     </record>
 
       <!-- Añadimos la vista el menu principal -->
-    <menuitem name="alumnos" id="alumnos_menu" parent="escuela_menu" action="alumnos_action"/>
+    <menuitem name="alumnos" id="alumnos_menu" action="alumnos_action"  parent="escuela_menu"/>
 
     <!-- Vista usada en el formulario -->
     <record id="alumnos_view_form" model="ir.ui.view">

@@ -1,18 +1,16 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Lista de tareas",
+    'name': "Lista de tareas", # Titulo del módulo
 
     'summary': """
-    Sencilla Lista de tareas""",
+    Sencilla Lista de tareas""", # Resumen
 
     'description': """
     Sencilla lista de tareas utilizadas para crear un nuevo módulo con un nuevo modelo de datos
-    """,
+    """, # Descripción
 
-    'author': "Sergi García",
-    'website': "https://apuntesfpinformatica.es",
-    #Indicamos que es una aplicación
-    'application': True,
+    'author': "Cassandra Sowa Candela", # Indicamos el autor
+    'application': True,  # Indicamos que el modulo una aplicación
 
     # En la siguiente URL se indica que categorias pueden usarse
     # https://github.com/odoo/odoo/blob/14.0/odoo/addons/base/data/ir_module_category_data.xml
@@ -20,15 +18,13 @@
     'category': 'Productivity',
     'version': '0.1',
 
-    # Indicamos lista de modulos necesarios para que este funcione correctamente
-    # En este ejemplo solo depende del modulo "base"
+    # Depende del modulo base
     'depends': ['base'],
 
-    # Esto siempre se carga
+    # Siempre se carga
     'data': [
-        #Este primero indica la politica de acceso del modulo
-        'security/ir.model.access.csv',
-        #Cargamos las vistas y las plantillas
-        'views/views.xml',
+
+        'security/ir.model.access.csv', # Grupo de seguridad basado en rol
+        'views/views.xml', # Cargamos las vistas y las plantillas
     ]
 }

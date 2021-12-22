@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
-from . import alumne
-from . import cicle_formatiu
-from . import modul
-from . import professor
+
+# Importamos los ficheros de la carpeta models
+from . import ciclos
+from . import modulos
+from . import profesores
+from . import alumnos

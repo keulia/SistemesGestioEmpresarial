@@ -1,5 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-acl_alumne,alumne_default,model_alumne,base.group_user,1,1,1,1
-acl_professor,professor_default,model_professor,base.group_user,1,1,1,1
-acl_cicle_formatiu,cicle_formatiu_default,model_cicle_formatiu,base.group_user,1,1,1,1
-acl_modul,modul_default,modul_formatiu,base.group_user,1,1,1,1
+acl_ciclos,ciclos_default,model_ciclos,base.group_user,1,1,1,1
+acl_modulos,modulos_default,model_modulos,base.group_user,1,1,1,1
+acl_profesores,profesores_default,model_profesores,base.group_user,1,1,1,1
+acl_alumnos,alumnos_default,model_alumnos,base.group_user,1,1,1,1

@@ -1,36 +1,26 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Cicle Formatiu",
-
-    'summary': """
-    Cicle Formatiu""",
-
+    'name': "Ciclo Formativo",  # Titulo del módulo
+    'summary': "Gestión de un ciclo formativo",  # Resumen
     'description': """
-    Cicle Formatiu e informacio
-    """,
+Colegio
+==============
+    """,  # Descripción
 
-    'author': "Cassandra Sowa Candela",
-    #'website': "https://apuntesfpinformatica.es",
-    
-    # Indiquem que el mòdul es una aplicació
-    'application': True,
-
-    # En la següent URL s'indica que categories es poden usar
-    # https://github.com/odoo/odoo/blob/14.0/odoo/addons/base/data/ir_module_category_data.xml
-    'category': 'Productivity',
+    'application': True, # Indicamos que el modulo una aplicación
+    'author': "Cassandra Sowa Candela", # Indicamos el autor
+    'category': 'Tools',
     'version': '0.1',
-
-    # Indiquem llista de mòduls necesaris per a que aquest funcione correctament
-    # En aquest cas, sol depen del mòdulol "base"
     'depends': ['base'],
 
-    # Aquest sempre es carga
+    # Siempre se carga
     'data': [
-        # Política d'accés al mòdul
-        'security/ir.model.access.csv',
-
-        # Carguem les vistes i les plantilles
-        'views/voluntaris.xml',
-
-    ]
+        'security/groups.xml',  # Grupo de seguridad basado en rol
+        'security/ir.model.access.csv', # Política de acceso al módulo
+        # Cargamos la vista y las plantillas
+        'views/ciclos.xml',
+        'views/modulos.xml',
+        'views/profesores.xml',
+        'views/alumnos.xml'
+    ],
 }

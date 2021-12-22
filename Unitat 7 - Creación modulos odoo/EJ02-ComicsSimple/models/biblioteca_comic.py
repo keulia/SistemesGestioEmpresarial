@@ -4,33 +4,30 @@ from datetime import timedelta
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
 
-
-# Modelo base, creado como modelo abstracto (Fin didáctico)
+# Definimos el modelo de BaseArchive
 class BaseArchive(models.AbstractModel):
-    #Nombre y descripcion del modelo
-    _name = 'base.archive'
-    _description = 'Fichero abstracto'
 
-    #Introduce el atributo "Activo"
+    _name = 'base.archive' # Nombre del modelo
+    _description = 'Fichero abstracto' # Descripcion del modelo
+
     activo = fields.Boolean(default=True)
 
-    #Introducice metodo "archivar" que invierte el estado de "activo"
+
     def archivar(self):
+        # Por cada registro del modelo
         for record in self:
+            # Cambiamos activo a False
             record.activo = not record.activo
 
 
-#Definimos modelo Biblioteca comic
+# Definimos el modelo Biblioteca comic
 class BibliotecaComic(models.Model):
 
-    #Nombre y descripcion del modelo
-    _name = 'biblioteca.comic'
-    #Hereda de "base.archive" (el modelo abstracto creado antes)
-    _inherit = ['base.archive']
-
-    _description = 'Comic de biblioteca'
-
-    #Parametros de ordenacion por defecto
+    _name = 'biblioteca.comic' # Nombre del modelo
+    _description = 'Comic de biblioteca' # Descripcion del modelo
+    _inherit = ['base.archive'] # Hereda de "base.archive"
+    
+    # Parametros para ordenar
     _order = 'fecha_publicacion desc, nombre'
 
     #ATRIBUTOS
@@ -41,54 +38,46 @@ class BibliotecaComic(models.Model):
     #Indicamos que atributo sera el que se usara para mostrar nombre.
     #Por defecto es "name", pero si no hay un atributo que se llama name, aqui lo indicamos
     #Aqui indicamos que se use el atributo "nombre"
-    _rec_name = 'nombre'
-    #Atributo nombre
-    nombre = fields.Char('Titulo', required=True, index=True)
-    #Atributo para seleccionar entre varios
+    _rec_name = 'nombre' # Atributo nombre
+    nombre = fields.Char('Titulo', required=True, index=True) # nombre, es un campo de texto
     estado = fields.Selection(
         [('borrador', 'No disponible'),
          ('disponible', 'Disponible'),
          ('perdido', 'Perdido')],
-        'Estado', default="borrador")
-    #Campo con HTML (Sanitizado) donde se guarda la descripción del comic
-    descripcion = fields.Html('Descripción', sanitize=True, strip_style=False)
-    #Dato binario, para guardar un binario (en la vista indicaremos que es una imagen) con la portada del comic
-    portada = fields.Binary('Portada Comic')
-
-    #Fecha de publicación
-    fecha_publicacion = fields.Date('Fecha publicación')
-
-    #Precio del libro    
-    precio = fields.Float('Precio')
-    #Numero de paginas. 
+        'Estado', default="borrador") # Estado, seleccionar entre las distintas opciones
+    descripcion = fields.Html('Descripción', sanitize=True, strip_style=False) # Descripción, es un campo HTML
+    portada = fields.Binary('Portada Comic') # Portada, campo binario
+    fecha_publicacion = fields.Date('Fecha publicación') # fecha, campo de fecha
+    precio = fields.Float('Precio') # precio, campo float
     paginas = fields.Integer('Numero de páginas',
-        #Por comentar 
-        grupos='base.group_user',
-        #Si esta perdido, el numero de paginas no se puede cambiar
+        groups='base.group_user',
         estados={'perdido': [('readonly', True)]},
-        help='Total numero de paginas', company_dependent=False)
- 
-    #Valoración lector, indicando como son los datos
+        help='Total numero de paginas',
+        company_dependent=False)
     valoracion_lector = fields.Float(
         'Valoración media lectores',
-        digits=(14, 4),  # Precision opcional (total, decimales),
+        digits=(14, 4),  
     )
-    # Relación muchos a muchos de autores utilizando un "partner"
     # de Odoo (Es un elemento que puede ser empresa o individuo)
     # https://stackoverflow.com/questions/22927605/what-is-res-partner
     autor_ids = fields.Many2many('res.partner', string='Autores')
 
     #Constraints de SQL del modelo
+    #Util cuando la constraint se puede definir con sintaxis SQL
     _sql_constraints = [
         ('name_uniq', 'UNIQUE (nombre)', 'El titulo Comic debe ser único.'),
         ('positive_page', 'CHECK(paginas>0)', 'El comic debe tener al menos una página')
     ]
 
-    #Constraints de atributos
+    #Indicamos que esta funcion es una "Constraints" de ese atributos
+    #Dicho de otra forma, cada vez que se cambie ese atributo, se lanzara esta funcion
+    #Y si la funcion detecta un cambio inadecuado, cambiara una instruccion
+    #Util cuando la constraint no se puede definir con sintaxis SQL y debe indicar en una funcion
     @api.constrains('fecha_publicacion')
     def _check_release_date(self):
+        # Recorremos el modelo
         for record in self:
             if record.fecha_publicacion and record.fecha_publicacion > fields.Date.today():
-                raise models.ValidationError('La fecha de lanzamiento debe ser anterior a la actual')
+                raise models.ValidationError('La fecha de lanzamiento debe haber sido antes a hoy')
 
 

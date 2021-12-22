@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id='prestamos_action' model='ir.actions.act_window'>
+        <field name="name">Prestamos</field>  <!-- Nombre de la ventaba -->
+        <field name="res_model">prestamos</field> <!-- Modelo al que va a aplicar-->
+        <field name="view_mode">tree,form</field>  <!-- Distintos tipos de visualización -->
+    </record>
+
+    <!-- Añadimos la vista el menu principal -->
+    <menuitem name="Prestamos" id="prestamos_menu" parent="biblioteca_base_menu" action="prestamos_action"/>
+
+    <!-- Vista usada en el formulario -->
+    <record id="prestamos_view_form" model="ir.ui.view">
+        <field name="name">Formulario de Préstamos de la biblioteca</field> <!-- Nombre de la vista -->
+        <field name="model">prestamos</field> <!-- Modelo usado a la vista -->
+        <field name="arch" type="xml">
+            <form> <!-- Indicamos los campos del modelo a mostrar-->
+                <group> <!-- Agrupamos visualmente los elementos -->
+                    <field name="comic"/>
+                    <field name="prestadoa"/>
+                    <field name="inicioprestamo"/>
+                    <field name="finalprestamo"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <!-- Definición de la vista Tree -->
+    <record id="prestamos_view_tree" model="ir.ui.view">
+        <field name="name">Lista de Préstamos de la biblioteca</field> <!-- Nombre de la vista -->
+        <field name="model">prestamos</field> <!-- Modelo usado a la vista -->
+        <field name="arch" type="xml">
+            <tree> <!-- Indicamos los campos del modelo a mostrar-->
+                <field name="comic"/>
+                <field name="prestadoa"/>
+                <field name="inicioprestamo"/>
+                <field name="finalprestamo"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Definición de la vista busqueda-->
+    <record id="prestamos_view_search" model="ir.ui.view">
+        <field name="name">Búsqueda de Préstamos en la biblioteca</field> <!-- Nombre de la vista -->
+        <field name="model">prestamos</field> <!-- Modelo usado a la vista -->
+        <field name="arch" type="xml">
+            <search> <!-- Indicamos los campos del modelo a mostrar-->
+                <field name="comic"/>
+                <field name="prestadoa"/>
+                <field name="inicioprestamo"/>
+                <field name="finalprestamo"/>
+            </search>
+        </field>
+    </record>
+
+</odoo>

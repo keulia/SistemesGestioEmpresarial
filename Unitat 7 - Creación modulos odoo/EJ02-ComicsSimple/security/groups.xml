@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Grupo de seguridad "grupo_bibliotecario" basado en "res.groups"-->
+    <record id="grupo_bibliotecario" model="res.groups">
+        <!-- Se msotrará como "Bibliotecario" -->
+        <field name="name">Biblotecario</field>
+        <!-- Todos los "users" dentro de este grupo serán administradores --> 
+        <field name="users" eval="[(4, ref('base.user_admin'))]" />
+    </record>
+</odoo>

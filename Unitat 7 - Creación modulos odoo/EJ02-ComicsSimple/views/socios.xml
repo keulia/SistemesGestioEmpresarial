@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id='socios_action' model='ir.actions.act_window'>
+        <field name="name">Socios</field> <!-- Nombre de la ventaba -->
+        <field name="res_model">socios</field> <!-- Modelo al que va a aplicar-->
+        <field name="view_mode">tree,form</field>  <!-- Distintos tipos de visualización -->
+    </record>
+
+    <!-- Añadimos la vista el menu principal -->
+    <menuitem name="Socios" id="socios_menu" parent="biblioteca_base_menu" action="socios_action"/>
+
+<!-- Vista usada en el formulario -->
+    <record id="socios_view_form" model="ir.ui.view">
+        <field name="name">Formulario de Socios de la biblioteca</field> <!-- Nombre de la vista -->
+        <field name="model">socios</field> <!-- Modelo usado a la vista -->
+        <field name="arch" type="xml">
+            <form> <!-- Indicamos los campos del modelo a mostrar -->
+                <group> <!-- Agrupamos visualmente los elementos -->
+                    <field name="nombre"/>
+                    <field name="apellidos"/>
+                    <field name="identificador"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <!-- Definición de la vista Tree -->
+    <record id="socios_view_tree" model="ir.ui.view">
+        <field name="name">Lista de Socios de la biblioteca</field> <!-- Nombre de la vista -->
+        <field name="model">socios</field> <!-- Modelo usado a la vista -->
+        <field name="arch" type="xml">
+            <tree> <!-- Indicamos los campos del modelo a mostrar -->
+                <field name="nombre"/>
+                <field name="apellidos"/>
+                <field name="identificador"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Definición de la vista busqueda-->
+    <record id="socios_view_search" model="ir.ui.view">
+        <field name="name">Búsqueda de Socios en la biblioteca</field> <!-- Nombre de la vista -->
+        <field name="model">socios</field> <!-- Modelo usado a la vista -->
+        <field name="arch" type="xml">
+            <search> <!-- Indicamos los campos del modelo a mostrar -->
+                <field name="nombre"/>
+                <field name="apellidos"/>
+                <field name="identificador"/>
+            </search>
+        </field>
+    </record>
+
+</odoo>

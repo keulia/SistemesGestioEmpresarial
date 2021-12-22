@@ -1,7 +1,4 @@
 # -*- coding: utf-8 -*-
 
-# Importamos los ficheros de la carpeta models
-from . import ciclos
-from . import modulos
-from . import profesores
-from . import alumnos
+from . import models # Importar contenido Python de la carpeta models
+from . import controllers # Importar contenido Python de la carpeta controllers (está vacía)

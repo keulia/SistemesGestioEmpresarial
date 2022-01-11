@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<record id='nous_partits_wizard_form' model='ir.ui.view'>
+    <field name='name'>Wizard para introducir un partido nuevo</field>
+    <field name='model'>nous.partits.wizard</field>
+    <field name='arch' type='xml'>
+        <form string="Introducir datos de un partido nuevo">
+            <sheet>
+                <group>
+                    <field name="equipo_casa" />
+                    <field name="goles_casa" />
+                </group>
+
+                <group>
+                    <field name="equipo_fuera" />
+                    <field name="goles_fuera" />
+                </group>
+            </sheet>
+            <footer>
+                <button string='Añadir' name='add_nous_partits' class='btn-primary' type='object'/>
+                <button string='Cancel' class='btn-default' special='cancel'/>
+            </footer>
+        </form>
+    </field>
+</record>
+
+<act_window id="action_wizard_nous_partits" name="Añadir partido" res_model="nous.partits.wizard" view_mode="form" target="new" />
+<menuitem id="menu_wizard_nous_partits" parent="liga_base_menu" action="action_wizard_nous_partits" sequence="20" />
+
+</odoo>

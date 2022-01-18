@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+acl_empleados,empleados_default,model_empleados,base.group_user,1,1,1,1
+acl_vehiculos,vehiculos_default,model_vehiculos,base.group_user,1,1,1,1
+acl_clientes,clientes_default,model_clientes,base.group_user,1,1,1,1
+acl_reparto,reparto_default,model_reparto,base.group_user,1,1,1,1
+acl_reparto_wizard,reparto_wizard,model_reparto_wizard,base.group_user,1,1,1,1

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Definimos como mostramos la vista en el modelo -->
+    <record id='vehiculos_action' model='ir.actions.act_window'>
+        <field name="name">vehiculos</field>
+        <!-- Indicamos a que modelo aplica -->
+        <field name="res_model">vehiculos</field>
+        <!-- Indicamos que los vehiculos pueden verse en tree para el listado,
+            y en form para la creación/edición -->
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem name="vehiculos" id="vehiculos_menu" parent="empleados_base_menu" action="vehiculos_action"/>
+
+    <!-- Definición de la Vista formulario -->
+    <record id="vehiculos_view_form" model="ir.ui.view">
+        <field name="name">Formulario de vehiculos</field>
+        <field name="model">vehiculos</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="imagen" widget="image" class="oe_avatar"/>
+                    <field name="tipo"/>
+                    <field name="matricula"/>
+                    <field name="descripcion"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <!-- Definición de la vista Tree -->
+    <record id="vehiculos_view_tree" model="ir.ui.view">
+        <field name="name">Lista de vehiculos</field>
+        <field name="model">vehiculos</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="imagen" widget="image" class="oe_avatar"/>
+                <field name="tipo"/>
+                <field name="matricula"/>
+                <field name="descripcion"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Definición de la vista busqueda-->
+    <record id="vehiculos_view_search" model="ir.ui.view">
+        <field name="name">Búsqueda de vehiculos</field>
+        <field name="model">vehiculos</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="imagen" widget="image" class="oe_avatar"/>
+                <field name="tipo"/>
+                <field name="matricula"/>
+                <field name="descripcion"/>
+            </search>
+        </field>
+    </record>
+
+</odoo>

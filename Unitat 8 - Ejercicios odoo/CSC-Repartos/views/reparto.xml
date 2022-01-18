@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Definimos como mostramos la vista en el modelo -->
+    <record id='reparto_action' model='ir.actions.act_window'>
+        <field name="name">reparto</field>
+        <!-- Indicamos a que modelo aplica -->
+        <field name="res_model">reparto</field>
+        <!-- Indicamos que los repartos pueden verse en tree para el listado,
+            y en form para la creación/edición -->
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Simple menu item, sin más utilidad que la didáctica -->
+    <menuitem name="Mis reparto" id="reparto_base_menu" />
+    <menuitem name="reparto" id="reparto_menu" parent="empleados_base_menu" action="reparto_action"/>
+
+    <!-- Definición de la Vista formulario -->
+    <record id="reparto_view_form" model="ir.ui.view">
+        <field name="name">Formulario de reparto</field>
+        <field name="model">reparto</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="fechaInicio"/>
+                    <field name="fechaDevolver"/>
+                    <field name="fechaEntrega"/>
+                    <field name="repartidor"/>
+                    <field name="vehiculo"/>
+                    <field name="kilometros"/>
+                    <field name="peso"/>
+                    <field name="volumen"/>
+                    <field name="observacions"/>
+                    <field name="estadoEntrega"/>
+                    <field name="clienteEmissor"/>
+                    <field name="clienteReceptor"/>
+                    <field name="urgencia"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <!-- Definición de la vista Tree -->
+    <record id="reparto_view_tree" model="ir.ui.view">
+        <field name="name">Lista de reparto</field>
+        <field name="model">reparto</field>
+        <field name="arch" type="xml">
+            <tree decoration-danger="estadoEntrega=='n'" decoration-info="estadoEntrega=='c'" decoration-success="estadoEntrega=='e'">
+                <field name="codigoNumerico"/>
+                <field name="fechaInicio"/>
+                <field name="fechaDevolver"/>
+                <field name="fechaEntrega"/>
+                <field name="repartidor"/>
+                <field name="vehiculo"/>
+                <field name="kilometros"/>
+                <field name="peso"/>
+                <field name="volumen"/>
+                <field name="observacions"/>
+                <field name="estadoEntrega"/>
+                <field name="clienteEmissor"/>
+                <field name="clienteReceptor"/>
+                <field name="urgencia"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Definición de la vista busqueda-->
+    <record id="reparto_view_search" model="ir.ui.view">
+        <field name="name">Búsqueda de reparto</field>
+        <field name="model">reparto</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="codigoNumerico"/>
+                <field name="fechaInicio"/>
+                <field name="fechaDevolver"/>
+                <field name="fechaEntrega"/>
+                <field name="repartidor"/>
+                <field name="vehiculo"/>
+                <field name="kilometros"/>
+                <field name="peso"/>
+                <field name="volumen"/>
+                <field name="observacions"/>
+                <field name="estadoEntrega"/>
+                <field name="clienteEmissor"/>
+                <field name="clienteReceptor"/>
+                <field name="urgencia"/>
+            </search>
+        </field>
+    </record>
+
+        <!-- Definición de ID autonumérico-->
+    <record id="codigoAutomatico" model="ir.sequence">
+        <field name="name">ID automático</field>
+        <field name="code">codigoAutomatico</field>
+        <field name="prefix"></field>
+        <field name="padding">3</field>
+        <field name="company_id" eval="False"/>
+    </record>
+
+</odoo>

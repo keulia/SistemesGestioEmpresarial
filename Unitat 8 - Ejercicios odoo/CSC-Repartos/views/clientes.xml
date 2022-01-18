@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Definimos como mostramos la vista en el modelo -->
+    <record id='clientes_action' model='ir.actions.act_window'>
+        <field name="name">clientes</field>
+        <!-- Indicamos a que modelo aplica -->
+        <field name="res_model">clientes</field>
+        <!-- Indicamos que los clientes pueden verse en tree para el listado,
+            y en form para la creación/edición -->
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Simple menu item, sin más utilidad que la didáctica -->
+    <menuitem name="Mis clientes" id="clientes_base_menu" />
+    <menuitem name="clientes" id="clientes_menu" parent="empleados_base_menu" action="clientes_action"/>
+
+    <!-- Definición de la Vista formulario -->
+    <record id="clientes_view_form" model="ir.ui.view">
+        <field name="name">Formulario de clientes</field>
+        <field name="model">clientes</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="nombre"/>
+                    <field name="apellidos"/>
+                    <field name="dni"/>
+                    <field name="telefono"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <!-- Definición de la vista Tree -->
+    <record id="clientes_view_tree" model="ir.ui.view">
+        <field name="name">Lista de clientes</field>
+        <field name="model">clientes</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="nombre"/>
+                <field name="apellidos"/>
+                <field name="dni"/>
+                <field name="telefono"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Definición de la vista busqueda-->
+    <record id="clientes_view_search" model="ir.ui.view">
+        <field name="name">Búsqueda de clientes</field>
+        <field name="model">clientes</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="nombre"/>
+                <field name="apellidos"/>
+                <field name="dni"/>
+                <field name="telefono"/>
+            </search>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Informe asociado a los repartos pendientes de salida (se genera al darle  
+    a imprimir desde la vista Form de un empleado) -->
+    <template id="report_empleados_view">
+        <!-- Aqui la estructura a seguir -->
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.internal_layout">
+                    <div class="page">
+                        
+                        <!-- Datos de los repartos pendientes de salida -->
+                        <div  t-foreach="doc.repartosCompletados" t-as="reparto">
+                            <p t-if="reparto.estadoEntrega == 'n'">
+                            Id:
+                            <span t-field="reparto.codigoNumerico"/>
+                            </p>
+                            <p>
+                            Fecha de inicio:
+                            <span t-field="reparto.fechaInicio"/>
+                            </p>
+                            <p>
+                            Fecha de entrega:
+                            <span t-field="reparto.fechaEntrega"/>
+                            </p>
+                            <p>
+                            Peso:
+                            <span t-field="reparto.peso"/>
+                            </p>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <!-- Realmente, este es el informe, lo de arriba es la plantilla que utilizara el informe -->
+    <report id="report_empleados" model="empleados" string="Informe repartos pendiente de salida" name="CSC-Repartos.report_empleados_view" file="CSC-Repartos.report_empleados_view" report_type="qweb-pdf" />
+
+
+</odoo>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<record id='reparto_wizard_form' model='ir.ui.view'>
+    <field name='name'>Wizard para crear un reparto</field>
+    <field name='model'>reparto.wizard</field>
+    <field name='arch' type='xml'>
+        <form string="Introducir datos de un reparto">
+            <sheet>
+                <group>
+                <field name="fechaInicio"/>
+                <field name="fechaDevolver"/>
+                <field name="fechaEntrega"/>
+                <field name="repartidor"/>
+                <field name="vehiculo"/>
+                <field name="kilometros"/>
+                <field name="peso"/>
+                <field name="volumen"/>
+                <field name="observacions"/>
+                <field name="estadoEntrega"/>
+                <field name="clienteEmissor"/>
+                <field name="clienteReceptor"/>
+                <field name="urgencia"/>
+                </group>
+
+            </sheet>
+            <footer>
+                <button string='Añadir' name='add_reparto' class='btn-primary' type='object'/>
+                <button string='Cancel' class='btn-default' special='cancel'/>
+            </footer>
+        </form>
+    </field>
+</record>
+
+<act_window id="action_wizard_reparto" name="Añadir reparto" res_model="reparto.wizard" view_mode="form" target="new" />
+<menuitem id="menu_wizard_reparto" parent="empleados_base_menu" action="action_wizard_reparto" sequence="20" />
+
+</odoo>

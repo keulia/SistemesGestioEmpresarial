@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Definimos como mostramos la vista en el modelo -->
+    <record id='empleados_action' model='ir.actions.act_window'>
+        <field name="name">empleados</field>
+        <!-- Indicamos a que modelo aplica -->
+        <field name="res_model">empleados</field>
+        <!-- Indicamos que los empleados pueden verse en tree para el listado,
+            y en form para la creación/edición -->
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Simple menu item, sin más utilidad que la didáctica -->
+    <menuitem name="Mis empleados" id="empleados_base_menu" />
+    <menuitem name="empleados" id="empleados_menu" parent="empleados_base_menu" action="empleados_action"/>
+
+    <!-- Definición de la Vista formulario -->
+    <record id="empleados_view_form" model="ir.ui.view">
+        <field name="name">Formulario de empleados</field>
+        <field name="model">empleados</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="imagen" widget="image" class="oe_avatar"/>
+                    <field name="nombre"/>
+                    <field name="apellidos"/>
+                    <field name="dni"/>
+                    <field name="carnet"/>
+                    <field name="telefono"/>
+                    <field name="repartosCompletados" widget="many2many"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <!-- Definición de la vista Tree -->
+    <record id="empleados_view_tree" model="ir.ui.view">
+        <field name="name">Lista de empleados</field>
+        <field name="model">empleados</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="imagen" widget="image" class="oe_avatar"/>
+                <field name="nombre"/>
+                <field name="apellidos"/>
+                <field name="dni"/>
+                <field name="carnet"/>
+                <field name="telefono"/>
+                <field name="repartosCompletados" widget="many2many_tags"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Definición de la vista busqueda-->
+    <record id="empleados_view_search" model="ir.ui.view">
+        <field name="name">Búsqueda de empleados</field>
+        <field name="model">empleados</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="imagen" widget="image" class="oe_avatar"/>
+                <field name="nombre"/>
+                <field name="apellidos"/>
+                <field name="dni"/>
+                <field name="carnet"/>
+                <field name="telefono"/>
+                <field name="repartosCompletados" widget="many2many"/>
+            </search>
+        </field>
+    </record>
+
+</odoo>
